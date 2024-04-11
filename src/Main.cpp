@@ -10,7 +10,6 @@ void Listener(SKSE::MessagingInterface::Message* message) noexcept
     if (message->type <=> SKSE::MessagingInterface::kDataLoaded == 0) {
         Settings::LoadSettings();
         Events::InputSink::Register();
-   
     }
 }
 

@@ -148,9 +148,9 @@
 #include <Windows.h>
 // clang-format on
 
+#include <ClibUtil/simpleINI.hpp>
 #include <spdlog/sinks/basic_file_sink.h>
 #include <spdlog/sinks/msvc_sink.h>
-#include <ClibUtil/simpleINI.hpp>
 
 using namespace std::literals;
 using namespace REL::literals;
@@ -176,6 +176,7 @@ public:
         return std::addressof(singleton);
     }
 };
+
 namespace stl
 {
     using namespace SKSE::stl;

@@ -4,18 +4,18 @@ namespace Events
 {
     class InputSink : public RE::BSTEventSink<RE::InputEvent*>
     {
-        InputSink()                              = default;
-        InputSink(const InputSink&)              = delete;
-        InputSink(InputSink&&)                   = delete;
-        InputSink&  operator=(const InputSink&)  = delete;
-        InputSink& operator=(InputSink&&)        = delete;
+        InputSink()                            = default;
+        InputSink(const InputSink&)            = delete;
+        InputSink(InputSink&&)                 = delete;
+        InputSink& operator=(const InputSink&) = delete;
+        InputSink& operator=(InputSink&&)      = delete;
 
         static InputSink* GetSingleton()
         {
             static InputSink singleton;
             return &singleton;
         }
-    
+
     public:
         RE::BSEventNotifyControl ProcessEvent(RE::InputEvent* const* eventPtr, RE::BSTEventSource<RE::InputEvent*>*);
 
