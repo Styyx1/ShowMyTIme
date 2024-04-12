@@ -8,14 +8,14 @@ public:
     {
         std::ostringstream ssHourOut;
         std::ostringstream ssMinOut;
-        size_t       range         = 2;
-        auto         settings      = Settings::GetSingleton();
-        auto        timeSingleton = RE::Calendar::GetSingleton();
-        float        testTime      = timeSingleton->GetHour();
-        int          testHour      = static_cast<int>(testTime);
-        int          testMin       = static_cast<int>((testTime - testHour) * 60);
-        std::string  hourOut       = std::to_string(testHour);
-        std::string  minOut        = std::to_string(testMin);
+        size_t             range         = 2;
+        auto               settings      = Settings::GetSingleton();
+        auto               timeSingleton = RE::Calendar::GetSingleton();
+        float              testTime      = timeSingleton->GetHour();
+        int                testHour      = static_cast<int>(testTime);
+        int                testMin       = static_cast<int>((testTime - testHour) * 60);
+        std::string        hourOut       = std::to_string(testHour);
+        std::string        minOut        = std::to_string(testMin);
 
         ssHourOut << std::setw(range) << std::setfill('0') << hourOut;
         ssMinOut << std::setw(range) << std::setfill('0') << minOut;
