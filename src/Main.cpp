@@ -1,5 +1,4 @@
 #include "Events.h"
-#include "Hooks.h"
 #include "Logging.h"
 #include "Settings.h"
 
