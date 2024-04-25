@@ -20,7 +20,6 @@ namespace Events
         }
 
     public:
-
         RE::BSEventNotifyControl ProcessEvent(RE::InputEvent* const* eventPtr, RE::BSTEventSource<RE::InputEvent*>*)
         {
             if (!eventPtr)
@@ -30,15 +29,15 @@ namespace Events
             for (RE::InputEvent* evnt = *eventPtr; evnt; evnt = evnt->next) {
                 switch (evnt->eventType.get()) {
                 case RE::INPUT_EVENT_TYPE::kButton:
-                    Settings*             settings = Settings::GetSingleton();
+                    Settings*        settings = Settings::GetSingleton();
                     RE::ButtonEvent* a_event  = evnt->AsButtonEvent();
-                    uint32_t         mask  = a_event->idCode;
+                    uint32_t         mask     = a_event->idCode;
                     uint32_t         key_code;
 
                     if (a_event->GetDevice() == RE::INPUT_DEVICE::kMouse) {
                         key_code = SKSE::InputMap::kMacro_NumKeyboardKeys + mask;
                     }
- 
+
                     else if (a_event->GetDevice() == RE::INPUT_DEVICE::kGamepad) {
                         key_code = SKSE::InputMap::GamepadMaskToKeycode(mask);
                     }
@@ -52,7 +51,7 @@ namespace Events
                     if (key_code == settings->setKey) {
                         Utility::PrintTime();
                     }
-                }                
+                }
             }
             return RE::BSEventNotifyControl::kContinue;
         };
