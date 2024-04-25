@@ -17,7 +17,7 @@ set(CMAKE_INTERPROCEDURAL_OPTIMIZATION_DEBUG OFF)
 set(CMAKE_OPTIMIZE_DEPENDENCIES ON)
 set(SKSE_SUPPORT_XBYAK ON)
 
-set(ENABLE_SKYRIM_VR OFF)
+set(ENABLE_SKYRIM_VR ON)
 
 include(GNUInstallDirs)
 
@@ -58,7 +58,7 @@ include(extern/CommonLibSSE-NG/cmake/CommonLibSSE.cmake)
 
 add_commonlibsse_plugin(
   ${PROJECT_NAME}
-  AUTHOR colinswrath
+  AUTHOR Styyx
   SOURCES ${headers} ${sources}
 )
 
