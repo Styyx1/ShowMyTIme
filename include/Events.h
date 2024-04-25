@@ -1,7 +1,7 @@
 #pragma once
-#include <Xinput.h>
 #include "Settings.h"
 #include "Utility.h"
+#include <Xinput.h>
 
 namespace Events
 {
@@ -70,7 +70,4 @@ namespace Events
         }
     };
 
-    
-
-    
 } // namespace Events
