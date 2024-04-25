@@ -20,45 +20,39 @@ namespace Events
         }
 
     public:
+
         RE::BSEventNotifyControl ProcessEvent(RE::InputEvent* const* eventPtr, RE::BSTEventSource<RE::InputEvent*>*)
         {
             if (!eventPtr)
                 return RE::BSEventNotifyControl::kContinue;
 
             // Do stuff
-            auto* event = *eventPtr;
-            if (!event)
-                return RE::BSEventNotifyControl::kContinue;
-
-            for (RE::InputEvent* e = *eventPtr; e; e = e->next) {
-                switch (e->eventType.get()) {
+            for (RE::InputEvent* evnt = *eventPtr; evnt; evnt = evnt->next) {
+                switch (evnt->eventType.get()) {
                 case RE::INPUT_EVENT_TYPE::kButton:
-                    auto             settings = Settings::GetSingleton();
-                    RE::ButtonEvent* a_event  = e->AsButtonEvent();
-                    uint32_t         keyMask  = a_event->idCode;
-                    uint32_t         keyCode;
+                    Settings*             settings = Settings::GetSingleton();
+                    RE::ButtonEvent* a_event  = evnt->AsButtonEvent();
+                    uint32_t         mask  = a_event->idCode;
+                    uint32_t         key_code;
 
-                    // Mouse
-                    if (a_event->device.get() == RE::INPUT_DEVICE::kMouse) {
-                        keyCode = SKSE::InputMap::kMacro_NumKeyboardKeys + keyMask;
+                    if (a_event->GetDevice() == RE::INPUT_DEVICE::kMouse) {
+                        key_code = SKSE::InputMap::kMacro_NumKeyboardKeys + mask;
                     }
-                    // Gamepad
-                    else if (a_event->device.get() == RE::INPUT_DEVICE::kGamepad) {
-                        keyCode = SKSE::InputMap::GamepadMaskToKeycode(keyMask);
+ 
+                    else if (a_event->GetDevice() == RE::INPUT_DEVICE::kGamepad) {
+                        key_code = SKSE::InputMap::GamepadMaskToKeycode(mask);
                     }
-                    // Keyboard
+
                     else
-                        keyCode = keyMask;
+                        key_code = mask;
 
-                    // Valid scancode?
-                    if (keyCode >= SKSE::InputMap::kMaxMacros)
+                    if (key_code >= SKSE::InputMap::kMaxMacros)
                         continue;
 
-                    if (keyCode == settings->setKey) {
+                    if (key_code == settings->setKey) {
                         Utility::PrintTime();
                     }
-                }
-                return RE::BSEventNotifyControl::kContinue;
+                }                
             }
             return RE::BSEventNotifyControl::kContinue;
         };

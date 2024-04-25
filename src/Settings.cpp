@@ -10,8 +10,8 @@ void Settings::LoadSettings() noexcept
     ini.SetUnicode();
     ini.LoadFile(R"(.\Data\SKSE\Plugins\ShowMyTime.ini)");
 
-    Settings::GetSingleton()->setKey  = std::stoi(ini.GetValue("General", "iKeycode", "257"));
-    Settings::GetSingleton()->msgTime = ini.GetValue("General", "msgTime", "It is");
+    setKey  = std::stoi(ini.GetValue("General", "iKeycode", "210"));
+    msgTime = ini.GetValue("General", "msgTime", "It is");
 
     debug_logging = ini.GetBoolValue("Log", "Debug");
 

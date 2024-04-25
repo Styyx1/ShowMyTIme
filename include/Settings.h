@@ -5,8 +5,9 @@ class Settings : public Singleton<Settings>
 public:
     static void LoadSettings() noexcept;
 
-    uint32_t    setKey  = 210;
-    std::string msgTime = "It is";
+
+    static inline uint32_t setKey;
+    inline static std::string msgTime;
 
     inline static bool debug_logging{};
 };
