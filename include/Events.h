@@ -26,7 +26,6 @@ namespace Events
             if (!eventPtr)
                 return RE::BSEventNotifyControl::kContinue;
 
-            // Do stuff
             for (RE::InputEvent* evnt = *eventPtr; evnt; evnt = evnt->next) {
                 switch (evnt->eventType.get()) {
                 case RE::INPUT_EVENT_TYPE::kButton:

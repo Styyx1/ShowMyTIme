@@ -12,6 +12,18 @@ void Listener(SKSE::MessagingInterface::Message* message) noexcept
     }
 }
 
+extern "C" DLLEXPORT constexpr auto SKSEPlugin_Version = []() {
+    SKSE::PluginVersionData v{};
+    v.PluginVersion(REL::Version{ 1, 1, 2, 0 });
+    v.PluginName("ShowMyTime"sv);
+    v.AuthorName("Styyx"sv);
+    v.UsesAddressLibrary(true);
+    v.HasNoStructUse(true);
+    v.UsesStructsPost629(false);
+    return v;
+}();
+
+
 SKSEPluginLoad(const SKSE::LoadInterface* skse)
 {
     InitializeLogging();
