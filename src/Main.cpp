@@ -23,7 +23,6 @@ extern "C" DLLEXPORT constexpr auto SKSEPlugin_Version = []() {
     return v;
 }();
 
-
 SKSEPluginLoad(const SKSE::LoadInterface* skse)
 {
     InitializeLogging();
