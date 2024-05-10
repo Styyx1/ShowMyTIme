@@ -1,5 +1,4 @@
 #include "Settings.h"
-#include <ClibUtil/simpleINI.hpp>
 
 void Settings::LoadSettings() noexcept
 {
@@ -16,7 +15,7 @@ void Settings::LoadSettings() noexcept
     debug_logging = ini.GetBoolValue("Log", "Debug");
 
     if (debug_logging) {
-        spdlog::get("Global")->set_level(spdlog::level::level_enum::debug);
+        spdlog::set_level(spdlog::level::debug);
         logger::debug("Debug logging enabled");
     }
 

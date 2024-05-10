@@ -25,6 +25,7 @@
 *.la
 *.a
 *.lib
+*.pdb
 
 # Executables
 *.exe
@@ -32,5 +33,7 @@
 *.app
 
 build
+*ReSharper*
 .vs
-extern
+contrib/PluginRelease
+contrib/*Debug*

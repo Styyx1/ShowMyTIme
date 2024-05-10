@@ -151,18 +151,8 @@
 #include <spdlog/sinks/basic_file_sink.h>
 #include <spdlog/sinks/msvc_sink.h>
 
-// ClibUtil
-#include <CLibUtil/distribution.hpp>
-#include <CLibUtil/numeric.hpp>
-#include <CLibUtil/rng.hpp>
-#include <CLibUtil/string.hpp>
-#include <ClibUtil/simpleINI.hpp>
-#include <ClibUtil/singleton.hpp>
+#include "SimpleIni.h"
 
-#include <ClibUtil/editorID.hpp>
-
-// Xbyak
-#include <xbyak/xbyak.h>
 
 #define DLLEXPORT __declspec(dllexport)
 
